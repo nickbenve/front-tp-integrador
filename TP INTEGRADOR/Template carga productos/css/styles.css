@@ -48,6 +48,9 @@ section {
 h1, h2 {
   font-weight: 20; }
 
+h4 {
+  font-size: 50px; }
+
 h1 {
   font-size: 20px; }
 
@@ -83,5 +86,22 @@ h2 {
 
 .c {
   margin-bottom: 3px; }
+
+tr {
+  font-size: 50px;
+  aling-items: center; }
+
+footer,
+section#main,
+body {
+  width: 100%;
+  position: absolute; }
+
+footer {
+  clear: both;
+  bottom: 0; }
+
+.py-5 {
+  bottom: 0; }
 
 /*# sourceMappingURL=styles.css.map */
