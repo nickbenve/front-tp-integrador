@@ -1,0 +1,100 @@
+
+
+$color1: #f0f0f0; /*gris claro*/
+$color2: #dddddd; /*gris intermedio*/
+$color3: #7b7b7f; /*gris oscuro*/
+
+
+html {
+  scroll-padding-top: 3.5rem;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: $color3;
+  margin: 2px 10px;
+}
+
+head {
+  padding-bottom: 3rem;
+  vertical-align:middle;
+  margin-bottom:3rem;
+  font-size: 50px;
+}
+
+
+section {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  padding-top: 10px;
+
+}
+
+.color1 {
+  color: $color1;
+}
+
+.color2 {
+  color: $color2;
+}
+
+.color3 {
+  color: $color3;
+}
+
+.form-control-file{
+  font-size: 15px;
+}
+
+.bg-color1 {
+  background-color: $color1;
+}
+
+.bg-color2 {
+  background-color: $color2;
+}
+
+.bg-color3 {
+  background-color: $color3;
+}
+.eleccionMoneda{
+   padding-top: 1rem;
+}
+
+
+h1, h2 {
+  font-weight: 20;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+
+.box-image {
+  height: 400px;
+
+}
+
+.navbar {
+  margin-bottom: 20px;
+  aling-items:center;
+
+  
+}
+
+.nav-link{
+  display:flex;
+}
+
+.btn{
+   margin-bottom: 6px;
+   margin-top:3px;
+   align-items: end;
+   color
+}

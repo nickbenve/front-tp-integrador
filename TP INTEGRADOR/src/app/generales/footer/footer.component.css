@@ -1,0 +1,40 @@
+/*gris claro*/
+/*gris intermedio*/
+/*gris oscuro*/
+html {
+  scroll-padding-top: 3.5rem; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  color: #7b7b7f;
+  margin: 2px 5px;
+
+   }
+
+
+
+.bg-color1 {
+  background-color: #7B3E95; }
+
+.bg-color2 {
+  background-color: #dddddd; }
+
+.bg-color3 {
+  background-color: #7b7b7f; }
+
+
+
+.box-image {
+  height: 400px; }
+
+
+
+.color1{
+  color: #7B3E95;
+}
+
+
+
+
+
