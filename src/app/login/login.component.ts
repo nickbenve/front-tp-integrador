@@ -1,3 +1,4 @@
+import { Router, RouterModule } from '@angular/router';
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { VisibilidadFooterService } from './../generales/footer/visibilidad-footer.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private visibilidadFooterService:VisibilidadFooterService,
-    private visibilidadHeaderService:VisibilidadHeaderService
+    private visibilidadHeaderService:VisibilidadHeaderService,
+    private router: Router
+
   ) {
 
   }
@@ -20,4 +23,9 @@ export class LoginComponent implements OnInit {
     this.visibilidadHeaderService.desactivarHeader();
   }
 
+
+  public buscar(){
+
+    this.router.navigate(['/inicio']);
+  }
 }

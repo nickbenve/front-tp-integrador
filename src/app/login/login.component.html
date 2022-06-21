@@ -9,17 +9,18 @@
        <h1 class="h3 mb-3 fw-normal">Ingrese su cuenta</h1>
 
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="usuario" class="form-control" id="floatingInput" placeholder="Usuario">
           <label for="floatingInput">Usuario</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
           <label for="floatingPassword">Contraseña</label>
         </div>
 
 
+        <a [routerLink]="['/inicio']" (click)="buscar()">
         <button class="w-100 btn-lg btn-primary" type="submit" id="boton-ingreso">Ingresar</button>
-
+      </a>
       </form>
     </main>
 
