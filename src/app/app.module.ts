@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { GeneralesModule } from './generales/generales.module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GeneralesModule
+    GeneralesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

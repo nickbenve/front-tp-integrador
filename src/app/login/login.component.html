@@ -1,6 +1,6 @@
 
     <main class="form-signin text-center " >
-      <form>
+      <form [formGroup]="formulario!" (ngSubmit)="iniciarSesion()">
         <img class="mb-4 text-center"  src="assets/changuito_1.png"  width="72" height="57" alt="Imagen">
 
 
@@ -9,16 +9,16 @@
        <h1 class="h3 mb-3 fw-normal">Ingrese su cuenta</h1>
 
         <div class="form-floating">
-          <input type="usuario" class="form-control" id="floatingInput" placeholder="Usuario">
+          <input type="usuario" class="form-control" id="floatingInput" placeholder="Usuario" formControlName="usuario">
           <label for="floatingInput">Usuario</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" formControlName="contrasenia">
           <label for="floatingPassword">Contraseña</label>
         </div>
 
 
-        <a [routerLink]="['/inicio']" (click)="buscar()">
+        <a>
         <button class="w-100 btn-lg btn-primary" type="submit" id="boton-ingreso">Ingresar</button>
       </a>
       </form>
