@@ -1,3 +1,4 @@
+import { VisibilidadRolService } from './../../home/visibilidadRol/visibilidad-rol.service';
 import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
@@ -10,10 +11,14 @@ export class VisibilidadHeaderService {
   @Output() cambioDeVisibilidad: EventEmitter<boolean>;
 
 
-  constructor() {
+  constructor(
+      private visibilidadRolService:VisibilidadRolService
+  ) {
     this.estadoHeader = true;
     this.cambioDeVisibilidad = new EventEmitter();
   }
+
+
 
 
   public desactivarHeader(){

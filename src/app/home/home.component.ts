@@ -1,3 +1,5 @@
+import { VisibilidadFooterService } from './../generales/footer/visibilidad-footer.service';
+import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { VisibilidadRolService } from './visibilidadRol/visibilidad-rol.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,32 +14,25 @@ export class HomeComponent implements OnInit {
 
   constructor(
 
-    private visibilidadRolService:VisibilidadRolService
+    private visibilidadRolService:VisibilidadRolService,
+    private visibilidadHeaderService:VisibilidadHeaderService,
+    private VisibilidadFooterService:VisibilidadFooterService
   ) {
 
     this.esVendedor="";
 
    }
 
-
-
   ngOnInit(): void {
 
-    this.visibilidadRolService.cambioDeVisibilidad.subscribe((estadoVisibleVendedor: string) =>{
 
+    this.visibilidadRolService.cambioDeVisibilidad.subscribe((estadoVisibleVendedor: string) =>{
       this.esVendedor = estadoVisibleVendedor;
+      this.visibilidadHeaderService.activarHeader();
+      this.VisibilidadFooterService.activarFooter();
 
     });
 
-
-    this.visibilidadRolService.verificarLog().subscribe((persona:any) =>{
-      console.log(persona.rol);
-      this.visibilidadRolService.rolVisibilidad(persona.rol);
-    })
-
-
   }
-
-
 
 }

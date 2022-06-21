@@ -1,13 +1,14 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VisibilidadRolService {
 
-  private estadoVisibleVendedor: string;
+  private estadoVisibleVendedor: string|null;
 
   @Output() cambioDeVisibilidad: EventEmitter<string>;
 
@@ -19,15 +20,14 @@ export class VisibilidadRolService {
     private http: HttpClient
   ) {
 
-    this.estadoVisibleVendedor="";
     this.cambioDeVisibilidad= new EventEmitter();
+    this.estadoVisibleVendedor="";
 
   }
 
 
 
   public activarVisibilidadVendedor(){
-
     this.estadoVisibleVendedor= "vendedor";
     this.notificarCambio();
   }
@@ -36,27 +36,32 @@ export class VisibilidadRolService {
   public desActivarVisibilidadVendedor(){
 
     this.estadoVisibleVendedor= "cliente";
+
     this.notificarCambio();
   }
 
 
 
-public verificarLog(){
-  return this.http.get(this.url+'/login?usuario=hola&contrasenia=cami');
+public verificarLog(usuario:string,contrasenia:string){
+  return this.http.get(this.url+'/login?usuario='+usuario+'&contrasenia='+contrasenia);
 }
 
 
-  public rolVisibilidad(rol:string){
 
-    if(rol == "vendedor"){
+  public rolVisibilidad(){
+    if(localStorage.getItem('rol') == "vendedor"){
+      console.log(localStorage.getItem('rol'));
       this.activarVisibilidadVendedor();
     }else{
+      console.log(localStorage.getItem('rol'));
       this.desActivarVisibilidadVendedor();
     }
-
   }
 
   private notificarCambio(){
-    this.cambioDeVisibilidad.emit(this.estadoVisibleVendedor);
+    if(this.estadoVisibleVendedor!=null){
+      this.cambioDeVisibilidad.emit(this.estadoVisibleVendedor);
+    }
+
   }
 }
