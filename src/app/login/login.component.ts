@@ -1,3 +1,4 @@
+import { BuscarProductosService } from './../home/buscarProductos/buscar-productos.service';
 import { VisibilidadRolService } from './../home/visibilidadRol/visibilidad-rol.service';
 import { Router, RouterModule } from '@angular/router';
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private visibilidadFooterService:VisibilidadFooterService,
     private visibilidadHeaderService:VisibilidadHeaderService,
     private formBuilder: FormBuilder,
-    private visibilidadRolService:VisibilidadRolService
+    private visibilidadRolService:VisibilidadRolService,
+    private buscarProductosService:BuscarProductosService
   ) {
     this.busqueda=null;
     this.formulario = null;
@@ -45,7 +47,18 @@ export class LoginComponent implements OnInit {
     this.visibilidadRolService.verificarLog(usuario,contrasenia).subscribe((respuesta: any)=>{
       localStorage.setItem('rol',respuesta.rol);
       localStorage.setItem('id',respuesta.id);
+
       this.visibilidadRolService.rolVisibilidad();
+      if(respuesta.rol==='vendedor'){
+          this.buscarProductosService.consultarProductosVendedor(respuesta.id).subscribe((productos:any)=>{
+            this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+          })
+      }else{
+        this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+          this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+        })
+      }
+
     });
 
 

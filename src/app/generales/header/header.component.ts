@@ -1,3 +1,4 @@
+import { VisibilidadRolService } from './../../home/visibilidadRol/visibilidad-rol.service';
 import { VisibilidadHeaderService } from './visibilidadHeader.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
@@ -11,15 +12,22 @@ export class HeaderComponent implements OnInit {
 
 
   estaActivo: boolean;
+  esVendedor:string;
   constructor(
-    private visibilidadHeaderService: VisibilidadHeaderService
+    private visibilidadHeaderService: VisibilidadHeaderService,
+    private visibilidadRolService: VisibilidadRolService
   ) {
-    this. estaActivo=true;
+    this.estaActivo=true;
+    this.esVendedor="";
   }
 
   ngOnInit(): void {
     this.visibilidadHeaderService.cambioDeVisibilidad.subscribe((estaVisible: boolean) =>{
       this. estaActivo=estaVisible;
+    })
+
+    this.visibilidadRolService.cambioDeVisibilidad.subscribe((tipoRol:string)=>{
+      this.esVendedor=tipoRol;
     })
   }
 

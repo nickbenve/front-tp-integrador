@@ -30,3 +30,7 @@ body{
   }
 .body{background-color:#324766}
 
+.form-floating{
+  margin-bottom: 8px;
+}
+
