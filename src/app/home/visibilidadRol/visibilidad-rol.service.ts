@@ -45,7 +45,11 @@ export class VisibilidadRolService {
 public verificarLog(usuario:string,contrasenia:string){
   return this.http.get(this.url+'/login?usuario='+usuario+'&contrasenia='+contrasenia);
 }
+public error(){
+  this.estadoVisibleVendedor="error";
 
+  this.notificarCambio();
+}
 
 
   public rolVisibilidad(){
@@ -53,8 +57,13 @@ public verificarLog(usuario:string,contrasenia:string){
       console.log(localStorage.getItem('rol'));
       this.activarVisibilidadVendedor();
     }else{
-      console.log(localStorage.getItem('rol'));
-      this.desActivarVisibilidadVendedor();
+      if(localStorage.getItem('rol') == "cliente"){
+        console.log(localStorage.getItem('rol'));
+        this.desActivarVisibilidadVendedor();
+      }else{
+        this.error();
+      }
+
     }
   }
 

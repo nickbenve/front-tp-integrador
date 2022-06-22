@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
 
     private visibilidadRolService:VisibilidadRolService,
+    private  buscarProductosService:BuscarProductosService
   ) {
     this.busqueda=null;
     this.formulario = null;
@@ -47,6 +48,16 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('rol',respuesta.rol);
       localStorage.setItem('id',respuesta.id);
       this.visibilidadRolService.rolVisibilidad();
+      if(localStorage.getItem('rol')==='vendedor'){
+        this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
+          this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+        })
+     }else{
+
+      this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+        this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+      })
+  }
     });
 
 

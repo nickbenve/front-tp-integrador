@@ -4,6 +4,7 @@ import { VisibilidadHeaderService } from './../generales/header/visibilidadHeade
 import { VisibilidadRolService } from './visibilidadRol/visibilidad-rol.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

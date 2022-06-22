@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
