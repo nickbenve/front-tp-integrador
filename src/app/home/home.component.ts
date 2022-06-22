@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
     this.buscarProductosService.cambioResultados.subscribe((productos:any)=>{
       this.productos=productos;
     })
+
   }
 
 }

@@ -1,6 +1,5 @@
 import { BuscarProductosService } from './../home/buscarProductos/buscar-productos.service';
 import { VisibilidadRolService } from './../home/visibilidadRol/visibilidad-rol.service';
-import { Router, RouterModule } from '@angular/router';
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { VisibilidadFooterService } from './../generales/footer/visibilidad-footer.service';
 import { Component, OnInit } from '@angular/core';

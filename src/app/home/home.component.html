@@ -9,7 +9,10 @@
 
       <form class="d-flex mt-3 mt-6" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn  btn-outline-dark" type="submit">Search</button>
+
+          <button [routerLink]="['/carrito']" class="btn  btn-outline-dark" type="submit">Search</button>
+
+
       </form>
 
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -40,11 +43,8 @@
                           <div class="formulario">
 
                             <form id="formCantidad">
-
                               <div class="form-cantidad">
-
-                                <input type="text" class="form-cantidad" id="cantidad" size="5" placeholder="Cantidad">
-
+                                <input type="text" class="form-cantidad" id="cantidad" size="4" placeholder="Cantidad">
                               </div>
 
                             </form>
@@ -56,7 +56,7 @@
                   <!-- Product actions-->
                   <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="home">Add to cart</a></div>
                   </div>
               </div>
           </div>

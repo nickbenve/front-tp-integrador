@@ -7,13 +7,15 @@ import { GeneralesModule } from './generales/generales.module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarritoComponent } from './carrito/carrito.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     LoginComponent,
-    HomeComponent
-  ],
+    HomeComponent,
+      CarritoComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

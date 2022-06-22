@@ -1,6 +1,7 @@
 import { VisibilidadRolService } from './../../home/visibilidadRol/visibilidad-rol.service';
 import { VisibilidadHeaderService } from './visibilidadHeader.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { BuscarItemsService } from './buscar-items.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
   esVendedor:string;
   constructor(
     private visibilidadHeaderService: VisibilidadHeaderService,
-    private visibilidadRolService: VisibilidadRolService
+    private visibilidadRolService: VisibilidadRolService,
+    private buscarItemsService:BuscarItemsService
   ) {
     this.estaActivo=true;
     this.esVendedor="";
@@ -28,6 +30,14 @@ export class HeaderComponent implements OnInit {
 
     this.visibilidadRolService.cambioDeVisibilidad.subscribe((tipoRol:string)=>{
       this.esVendedor=tipoRol;
+    })
+
+
+  }
+
+  public actualizar(){
+    this.buscarItemsService.consultarItemsCliente(localStorage.getItem('id')).subscribe((resultado:any)=>{
+      this.buscarItemsService.cambiarResultados(resultado.items);
     })
   }
 
