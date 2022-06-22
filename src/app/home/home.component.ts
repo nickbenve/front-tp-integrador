@@ -40,17 +40,33 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     this.visibilidadRolService.cambioDeVisibilidad.subscribe((estadoVisibleVendedor: string) =>{
       this.esVendedor = estadoVisibleVendedor;
       this.visibilidadHeaderService.activarHeader();
       this.visibilidadFooterService.activarFooter();
-
     });
 
     this.buscarProductosService.cambioResultados.subscribe((productos:any)=>{
       this.productos=productos;
     })
+
+    this.visibilidadRolService.rolVisibilidad();
+    if(localStorage.getItem('rol')==='vendedor'){
+          this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
+            this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+          })
+    }else{
+
+        this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+          this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+        })
+    }
+
+
+    this.buscarProductosService.cambioResultados.subscribe((productos:any)=>{
+      this.productos=productos;
+    })
+
 
   }
 

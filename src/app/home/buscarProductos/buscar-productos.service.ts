@@ -24,7 +24,7 @@ export class BuscarProductosService {
     return this.http.get(this.url+'/productos');
   }
 
-  public consultarProductosVendedor(id:string){
+  public consultarProductosVendedor(id:string|null){
     return this.http.get(this.url+'/vendedores/'+id+'/productos');
   }
 
