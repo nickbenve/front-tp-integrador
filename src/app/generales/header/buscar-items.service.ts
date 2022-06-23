@@ -9,8 +9,8 @@ export class BuscarItemsService {
 
   @Output() cambioResultados: EventEmitter<string>;
   private url: string = environment.apiUser;
+  carrito:any;
 
-  items:any;
   constructor(
     private http: HttpClient
   ) {
@@ -22,12 +22,12 @@ export class BuscarItemsService {
    }
 
    public cambiarResultados(resultado:any ){
-      this.items=resultado;
+      this.carrito=resultado;
       this.notificar();
    }
 
 
    public notificar(){
-    this.cambioResultados.emit(this.items);
+    this.cambioResultados.emit(this.carrito);
   }
 }

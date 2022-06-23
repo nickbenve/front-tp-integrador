@@ -57,12 +57,41 @@ h2 {
 
 .navbar {
   margin-bottom: 0px;
-  aling-items: center;
   padding-left: 0px;
 
 
 }
 
+article{
+  background-color: #dddddd; ;
+}
+.pepe{
+  align-items: center;
+}
+#AA{
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.p{
+  align-items: center;
+  text-align: center;
+}
+
+.confirmar{
+  align-items: center;}
+
+.co{
+  align-items: center;
+}
+  .bt{
+    align-items: center;
+  }
+.price{
+  margin-top: 5px!important;
+}
 .color1{
   color: #7B3E95;
 }
@@ -117,3 +146,4 @@ h2 {
   margin-top: 15px !important;
   margin-right: 30px !important;
 }
+

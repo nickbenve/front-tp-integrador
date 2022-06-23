@@ -9,7 +9,10 @@ import { BuscarItemsService } from './../generales/header/buscar-items.service';
 })
 export class CarritoComponent implements OnInit {
 
-  private items:any;
+  public carrito:any;
+  public items:any
+  public precioSinDescuento:any;
+  public precioConDescuento:any;
   constructor(
     private visibilidadFooterService:VisibilidadFooterService,
     private visibilidadHeaderService:VisibilidadHeaderService,
@@ -22,9 +25,19 @@ export class CarritoComponent implements OnInit {
     this.visibilidadHeaderService.activarHeader();
     this.visibilidadFooterService.activarFooter();
 
-    this.buscarItemsService.cambioResultados.subscribe((iteem:any)=>{
-        this.items=iteem;
+    this.buscarItemsService.cambioResultados.subscribe((carritoo:any)=>{
+      this.carrito=carritoo;
+      this.items=carritoo.items;
+      this.precioSinDescuento=carritoo.precioTotalSinDescuento;
+
+      this.precioConDescuento=carritoo.precioTotalConDescuento;
+
     })
+    this.buscarItemsService.consultarItemsCliente(localStorage.getItem('id')).subscribe((resultado:any)=>{
+      this.buscarItemsService.cambiarResultados(resultado);
+
+    })
+
   }
 
 }
