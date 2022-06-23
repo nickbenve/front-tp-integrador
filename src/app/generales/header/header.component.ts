@@ -35,10 +35,6 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  public actualizar(){
-    this.buscarItemsService.consultarItemsCliente(localStorage.getItem('id')).subscribe((resultado:any)=>{
-      this.buscarItemsService.cambiarResultados(resultado.items);
-    })
-  }
+
 
 }

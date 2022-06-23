@@ -1,57 +1,17 @@
 
 
 <section *ngIf="esVendedor==='vendedor'">
-  <div class=" container  bg-color2 px-4 px-lg-5 ">
 
-    <h1 class="fw-bolder">CARGA DE PRODUCTOS</h1>
-     <form>
-
-          <div class="form-group">
-             <input type="nombre" class="form-control" id="nomProd" placeholder="Nombre">
-           </div>
-            <div class="form-group">
-             <input type="descripcion" class="form-control" id="desProd" placeholder="Descripcion">
-           </div>
-            <div class="form-group">
-             <input type="valor" class="form-control" id="Prod" placeholder="Costo">
-           </div>
-
-          <div class="form-group">
-             <label for="eleccionMoneda">Moneda</label>
-             <select class="form-control" id="eleccionMoneda">
-               <option>Pesos argentinos</option>
-               <option>Dolares</option>
-             </select>
-           </div>
-           <div class="form-group">
-             <label for="eleccionProv">Proveedores asociados</label>
-             <select class="form-control" id="eleccionProv">
-               <option>proveedor a</option>
-               <option>proveedor b</option>
-             </select>
-           </div>
-         <div class="form-group">
-        <!-- <label for="exampleFormControlFile1">Foto del producto</label>-->
-         <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-        <button type="submit" class="btn bg-color1">Cargar producto</button>
-     </form>
-  </div>
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
        <h1 class="fw-bolder">PRODUCTOS QUE OFRECES</h1>
-          <form class="d-flex mt-3" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
-                       <div class="text-center "><a class="btn bg-color1 mt-auto" href="#">Buscar</a></div>
-            </form>
-
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-              <div class="col mb-5" *ngFor="let estructura of productos">
+              <div class="col mb-5" id="z" *ngFor="let estructura of productos">
                   <div class="card h-100" >
                       <!-- Sale badge-->
-                      <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                      <div class="badge bg-dark text-white position-absolute" style="top: 0.3rem; right: 0.3rem">Sale</div>
                       <!-- Product image-->
-                      <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="...">
+                      <img class="card-img-top" src={{estructura.foto}} alt="...">
                       <!-- Product details-->
                       <div class="card-body p-4">
                           <div class="text-center">
@@ -92,21 +52,13 @@
 <section *ngIf="esVendedor==='cliente'" class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
 
-      <form class="d-flex mt-3 mt-6" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-
-          <button [routerLink]="['/carrito']" class="btn  btn-outline-dark" type="submit">Search</button>
-
-
-      </form>
-
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
           <div class="col mb-5" *ngFor="let estructura of productos">
               <div class="card h-100" >
                   <!-- Sale badge-->
                   <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                   <!-- Product image-->
-                  <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="...">
+                  <img class="card-img-top" src={{estructura.foto}} alt="...">
                   <!-- Product details-->
                   <div class="card-body p-4">
                       <div class="text-center">

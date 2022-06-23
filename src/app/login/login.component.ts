@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   formulario: FormGroup|null;
-  private busqueda:string|null;
+
 
   constructor(
     private visibilidadFooterService:VisibilidadFooterService,
@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     private visibilidadRolService:VisibilidadRolService,
     private  buscarProductosService:BuscarProductosService
   ) {
-    this.busqueda=null;
     this.formulario = null;
   }
 

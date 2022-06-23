@@ -8,13 +8,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
+import { CargaProductosComponent } from './carga-productos/carga-productos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-      CarritoComponent
+      CarritoComponent,
+      CargaProductosComponent
    ],
   imports: [
     BrowserModule,
