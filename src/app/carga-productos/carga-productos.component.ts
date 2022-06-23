@@ -4,6 +4,7 @@ import { VisibilidadFooterService } from './../generales/footer/visibilidad-foot
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { HttpClient } from '@angular/common/http';
 import {CargaProductoService} from './carga-producto/carga-producto.service'
+import {BuscarProductosService} from './../home/buscarProductos/buscar-productos.service'
 
 @Component({
   templateUrl: './carga-productos.component.html',
@@ -15,7 +16,8 @@ export class CargaProductosComponent implements OnInit {
     private visibilidadHeaderService:VisibilidadHeaderService,
     private visibilidadFooterService:VisibilidadFooterService,
     private formBuilder:FormBuilder,
-    private cargaProductoService:CargaProductoService
+    private cargaProductoService:CargaProductoService,
+    private buscarProductosService:BuscarProductosService
 
 
   ) {
@@ -28,6 +30,7 @@ export class CargaProductosComponent implements OnInit {
     this.visibilidadHeaderService.activarHeader();
     this.visibilidadFooterService.activarFooter();
     this.inicializarFormulario();
+
 
   }
 
@@ -53,6 +56,18 @@ export class CargaProductosComponent implements OnInit {
     var stock= this.formulario?.get('stock')?.value;
     var imagenURL=this.formulario?.get('imagenURL')?.value;
     console.log(nombre+' '+descripcion+' '+precio+' '+moneda+' '+stock+' '+imagenURL)
-    this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,stock,imagenURL).subscribe()
+    this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,stock,imagenURL).subscribe(()=>{
+      if(localStorage.getItem('rol')==='vendedor'){
+        this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
+          this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+        })
+       }else{
+
+      this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+        this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
+      })
+  }
+    })
+
   }
 }

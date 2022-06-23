@@ -19,6 +19,8 @@ export class CargaProductoService {
     var monedaBoolean;
     if(moneda==='pesos'){
       monedaBoolean=true;
+    }else{
+      monedaBoolean=false;
     }
     return this.http.post(this.url+'/vendedor/'+localStorage.getItem('id')+'/productos',
       {
