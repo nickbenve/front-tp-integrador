@@ -11,7 +11,4 @@ export class BusquedaProveedoresService {
   ) { }
 
 
-  public guardarProducto(){
-
-  }
 }

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VisibilidadFooterService } from './../generales/footer/visibilidad-footer.service';
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { HttpClient } from '@angular/common/http';
+import {CargaProductoService} from './carga-producto/carga-producto.service'
+
 @Component({
   templateUrl: './carga-productos.component.html',
   styleUrls: ['./carga-productos.component.css']
@@ -12,7 +14,9 @@ export class CargaProductosComponent implements OnInit {
   constructor(
     private visibilidadHeaderService:VisibilidadHeaderService,
     private visibilidadFooterService:VisibilidadFooterService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private cargaProductoService:CargaProductoService
+
 
   ) {
     this.formulario=null;
@@ -49,5 +53,6 @@ export class CargaProductosComponent implements OnInit {
     var stock= this.formulario?.get('stock')?.value;
     var imagenURL=this.formulario?.get('imagenURL')?.value;
     console.log(nombre+' '+descripcion+' '+precio+' '+moneda+' '+stock+' '+imagenURL)
+    this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,stock,imagenURL).subscribe()
   }
 }
