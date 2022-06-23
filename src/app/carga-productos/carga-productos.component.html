@@ -3,20 +3,23 @@
 
   <h1 class="fw-bolder">CARGA DE PRODUCTOS</h1>
    <form class="formulario1" [formGroup]="formulario!" (ngSubmit)="guardarProducto()">
-
+        <h3>Nombre</h3>
         <div class="form-group">
            <input type="text" class="form-control" id="nomProd" placeholder="Nombre" formControlName="nombre">
          </div>
+         <h3>Descripcion</h3>
           <div class="form-group">
            <input type="text" class="form-control" id="desProd" placeholder="Descripcion" formControlName="descripcion">
          </div>
+         <h3>Stock</h3>
          <div class="form-group">
           <input type="text" class="form-control"  placeholder="Stock" formControlName="stock">
         </div>
+        <h3>Precio</h3>
           <div class="form-group">
            <input type="text" class="form-control" placeholder="Precio" formControlName="precio">
          </div>
-
+         <h3>Moneda</h3>
      <div class="form-check form-check-inline">
 
           <input class="form-check-input" type="radio" name="moneda" id="inlineRadio1" value="pesos" formControlName="moneda">
@@ -29,7 +32,7 @@
           <input class="form-check-input" type="radio" name="moneda" id="inlineRadio2" value="dolar" formControlName="moneda">
           <label class="form-check-label" for="inlineRadio2">USD</label>
       </div>
-
+      <h3>Imagen</h3>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="LinkImagen" formControlName="imagenURL">
       </div>
