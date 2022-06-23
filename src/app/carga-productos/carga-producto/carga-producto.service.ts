@@ -15,7 +15,7 @@ export class CargaProductoService {
   }
 
 
-  public cargaProducto(nombre:string,descripcion:string,precio:number,moneda:string,stock :number,imagenURL:string){
+  public cargaProducto(nombre:string,descripcion:string,precio:number,moneda:string,idPro:number,stock :number,imagenURL:string){
     var monedaBoolean;
     if(moneda==='pesos'){
       monedaBoolean=true;
@@ -28,7 +28,7 @@ export class CargaProductoService {
         'descripcion':descripcion,
         'precio':precio,
         'stock':stock,
-        'idProveedor':2,
+        'idProveedor':idPro,
         'foto':imagenURL,
         'esPesos':monedaBoolean
       }

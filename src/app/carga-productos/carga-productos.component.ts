@@ -5,19 +5,23 @@ import { VisibilidadHeaderService } from './../generales/header/visibilidadHeade
 import { HttpClient } from '@angular/common/http';
 import {CargaProductoService} from './carga-producto/carga-producto.service'
 import {BuscarProductosService} from './../home/buscarProductos/buscar-productos.service'
-
+import {TraerProveedoresService} from './traer-proveedores/traer-proveedores.service'
 @Component({
   templateUrl: './carga-productos.component.html',
   styleUrls: ['./carga-productos.component.css']
 })
 export class CargaProductosComponent implements OnInit {
   formulario: FormGroup|null;
+
+  public proveedores:any;
+
   constructor(
     private visibilidadHeaderService:VisibilidadHeaderService,
     private visibilidadFooterService:VisibilidadFooterService,
     private formBuilder:FormBuilder,
     private cargaProductoService:CargaProductoService,
-    private buscarProductosService:BuscarProductosService
+    private buscarProductosService:BuscarProductosService,
+    private traerProveedoresService:TraerProveedoresService
 
 
   ) {
@@ -31,7 +35,9 @@ export class CargaProductosComponent implements OnInit {
     this.visibilidadFooterService.activarFooter();
     this.inicializarFormulario();
 
-
+    this.traerProveedoresService.getProveedores().subscribe((resultado:any)=>{
+      this.proveedores=resultado._embedded.proveedors;
+    })
   }
 
 
@@ -43,7 +49,8 @@ export class CargaProductosComponent implements OnInit {
       precio:['', Validators.required],
       stock:['', Validators.required],
       moneda:['', Validators.required],
-      imagenURL:['', Validators.required]
+      imagenURL:['', Validators.required],
+      proveedorElegido:['', Validators.required]
       }
     )
   }
@@ -55,8 +62,10 @@ export class CargaProductosComponent implements OnInit {
     var moneda= this.formulario?.get('moneda')?.value;
     var stock= this.formulario?.get('stock')?.value;
     var imagenURL=this.formulario?.get('imagenURL')?.value;
+    var prov=this.formulario?.get('proveedorElegido')?.value;
+    console.log(this.formulario?.get('proveedorElegido')?.value);
     console.log(nombre+' '+descripcion+' '+precio+' '+moneda+' '+stock+' '+imagenURL)
-    this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,stock,imagenURL).subscribe(()=>{
+    this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,prov,stock,imagenURL).subscribe(()=>{
       if(localStorage.getItem('rol')==='vendedor'){
         this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
           this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
