@@ -3,7 +3,9 @@ import { VisibilidadFooterService } from './../generales/footer/visibilidad-foot
 import { VisibilidadHeaderService } from './../generales/header/visibilidadHeader.service';
 import { VisibilidadRolService } from './visibilidadRol/visibilidad-rol.service';
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import {CargarItemService} from './cargar-item/cargar-item.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -12,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   esVendedor: string="";
-
+  formulario: FormGroup|null;
   productos :any;
 
   /*[
@@ -32,15 +34,18 @@ export class HomeComponent implements OnInit {
     private visibilidadRolService:VisibilidadRolService,
     private visibilidadHeaderService:VisibilidadHeaderService,
     private visibilidadFooterService:VisibilidadFooterService,
-    private buscarProductosService:BuscarProductosService
+    private buscarProductosService:BuscarProductosService,
+    private formBuilder: FormBuilder,
+    private cargarItemService:CargarItemService
   ) {
 
     this.esVendedor="";
+    this.formulario=null;
 
    }
 
   ngOnInit(): void {
-
+    this.inicializarFormulario();
     this.visibilidadRolService.cambioDeVisibilidad.subscribe((estadoVisibleVendedor: string) =>{
       this.esVendedor = estadoVisibleVendedor;
       this.visibilidadHeaderService.activarHeader();
@@ -70,5 +75,19 @@ export class HomeComponent implements OnInit {
 
 
   }
+
+ public inicializarFormulario(){
+  this.formulario= this.formBuilder.group(
+    {
+    cantidad:['', Validators.required]
+    }
+  )
+ }
+
+ public crearItem(id_producto:any){
+  var cantidad= this.formulario?.get('cantidad')?.value;
+  this.cargarItemService.crearItem(id_producto,cantidad).subscribe();
+
+ }
 
 }

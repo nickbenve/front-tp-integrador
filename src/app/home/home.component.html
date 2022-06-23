@@ -79,22 +79,28 @@
                           {{ estructura.precio }}
                           <div class="formulario">
 
-                            <form id="formCantidad">
+                          <form [formGroup]="formulario!" id="formCantidad" (ngSubmit)="crearItem(estructura.id)">
                               <div class="form-cantidad">
-                                <input type="text" class="form-cantidad" id="cantidad" size="4" placeholder="Cantidad">
+                                <input type="text" class="form-cantidad"  size="4" placeholder="Cantidad" formControlName="cantidad">
                               </div>
+                              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
-                            </form>
+                                <div class="text-center">
+                                  <a class="btn btn-outline-dark mt-auto" (click)="crearItem(estructura.id)">
+                                    Add to cart
+                                  </a>
+                                </div>
+                            </div>
+
+
+                           </form>
 
                           </div>
                       </div>
 
                   </div>
                   <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="home">Add to cart</a></div>
-                  </div>
               </div>
           </div>
 

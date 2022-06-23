@@ -4,7 +4,8 @@
       <article *ngFor="let item of items" class="row gy-3 mb-4">
           <div class="col-lg-5">
               <figure class="itemside me-lg-5">
-                  <div class="aside"><img src="images/items/11.jpg" class="img-sm img-thumbnail"></div>
+                  <div class="aside">
+                    <img src={{item.producto.foto}} class="img-sm img-thumbnail"></div>
                   <figcaption class="info">
                       <a href="#" class="title">{{item.producto.nombre}}</a>
                       <p class="text-muted"> {{item.producto.descripcion}}</p>
@@ -72,7 +73,7 @@
 <section class="pepe text-center">
 <div class="text-center  ">
 
-
+  <
   <span class=" me-2 " id="AA">Costo total sin descuento:${{precioSinDescuento}}</span>
 
 
