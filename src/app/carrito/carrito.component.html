@@ -1,6 +1,6 @@
 
-<section class="h-100 h-custom">
-  <div class="container h-100 py-5">
+<section class="h-100 h-custom" >
+  <div class="container h-100 py-5"id="section1">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
 
@@ -38,53 +38,53 @@
           </table>
         </div>
 
-        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
-          <div class="card-body p-4">
 
-            <div class="row col-6">
-              <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
-                <form>
-                  <div class="d-flex flex-row pb-3">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
-                        value="" aria-label="..." checked />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit Card
-                      </p>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row pb-3">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
-                        value="" aria-label="..." />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
-                      </p>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="d-flex align-items-center pe-2">
-                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
-                        value="" aria-label="..." />
-                    </div>
-                    <div class="rounded border w-100 p-3">
-                      <p class="d-flex align-items-center mb-0">
-                        <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
-                      </p>
-                    </div>
-                  </div>
-                </form>
-              </div>
+        <div class="card mb-4">
+
+          <form [formGroup]="formularioMeto!">
+
+          <div class="card-body p-4 d-flex flex-row">
+
+            <div class="form-outline flex-fill">
+
+              <option selected>Medios de pago</option>
+              <select id="inputState" class="form-select" formControlName="metodo">
+                <option value="EFECTIVO" >Efectivo</option>
+                <option value="TARJETA" >Tarjeta</option>
+                <option value="CHEQUE" >Cheque</option>
+              </select>
             </div>
-            <div class="row col-6 text-center">
-              <div class="col-lg-4 col-xl-3">
-                <div class="d-flex justify-content-between" style="font-weight: 500;">
-                  <p class="mb-2">Subtotal sin descuentos</p>
-                  <p class="mb-2">{{carrito.precioSinDescuento}}</p>
+            <button type="button" class="btn  btn-lg ms-3 bg-color1" (click)="guardar()">Elegir </button>
+          </div>
+
+          </form>
+
+        </div>
+
+        <div class="card mb-4">
+          <form [formGroup]="formularioDesc!">
+          <div class="card-body p-4 d-flex flex-row">
+            <div class="form-outline flex-fill">
+              <label>Ingrese cupon</label>
+              <input type="text" id="form1"  [(ngModel)]="codigoDescuento" class="form-control form-control-lg" formControlName="descuento">
+            </div>
+           <button type="button" class="btn bg-color1 btn-lg ms-3"(click)="guardarDescuento()">Apply </button>
+          </div>
+         </form>
+        </div>
+
+
+
+
+
+
+
+
+            <div class="row col-12 text-center aeeee" id="aaaaaaa">
+              <div class="col-lg-4 col-xl-3 text-center aling-items-center ">
+                <div class="d-flex justify-content-between text-center aling-items-center " style="font-weight: 500;">
+                  <p class="mb-2 ">Subtotal sin descuentos</p>
+                  <p class="mb-2">{{precioSinDescuento}}</p>
                 </div>
 
 
@@ -93,10 +93,10 @@
 
                 <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
                   <p class="mb-2">Total con descuentos </p>
-
+                  <p class="mb-2">{{precioConDescuento}}</p>
                 </div>
-                <p class="mb-2">{{precioConDescuento}}</p>
-                <button type="button" class="btn btn-primary btn-block btn-lg">
+
+                <button type="button" class="btn btn-primary btn-block  btn-lg">
                   <div class="d-flex justify-content-between">
                     <span>Confirmar</span>
 
@@ -106,12 +106,12 @@
               </div>
             </div>
 
-          </div>
+
         </div>
 
       </div>
     </div>
-  </div>
+
 </section>
 
 

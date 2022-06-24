@@ -41,7 +41,9 @@ section {
 
 .color3 {
   color: #7b7b7f; }
-
+#section1{
+  margin-left: 70px!important;
+}
 .bg-color1 {
   background-color: #7B3E95; }
 
@@ -51,6 +53,9 @@ section {
 .bg-color3 {
   background-color: #7b7b7f; }
 
+.bg-color3 {
+    background-color: #94407e; }
+
 h1, h2 {
   font-weight: 700; }
 
@@ -59,15 +64,34 @@ h1 {
 
 h2 {
   font-size: 50px; }
-
+.form-group{
+padding-bottom: 50px;
+  }
+#eleccionMedio{
+  padding-left: 10px;
+}
+  label{
+    padding-left: 10px;
+  }
 .box-image {
   height: 400px; }
 
 .navbar {
   margin-bottom: 0px;
   padding-left: 0px;
+}
+.column{
+  width: 50%;
+}
+#aaaaaaa{
+  margin-left: 383px !important;
 
-
+}
+#ass{
+  margin-bottom: 50px;
+}
+.aa{
+  margin-bottom:50px ;
 }
 img{
   width: 500x;
