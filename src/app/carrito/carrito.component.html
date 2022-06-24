@@ -1,3 +1,124 @@
+
+<section class="h-100 h-custom">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="h5">Shopping Bag</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items">
+                <th scope="row">
+                  <div class="d-flex align-items-center">
+                    <img src={{item.producto.foto}}  class="img-fluid rounded-3"
+                      style="width: 120px;" alt="Book">
+                    <div class="flex-column ms-4">
+                      <p class="mb-2">{{item.producto.nombre}}</p>
+                      <p class="mb-0">{{item.producto.descripcion}}</p>
+                    </div>
+                  </div>
+                </th>
+
+                <th class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{item.cantidad}}</p>
+                </th>
+                <th class="align-middle">
+                  <p class="mb-0" style="font-weight: 500;">{{item.producto.precio}}</p>
+                </th>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+          <div class="card-body p-4">
+
+            <div class="row col-6">
+              <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                <form>
+                  <div class="d-flex flex-row pb-3">
+                    <div class="d-flex align-items-center pe-2">
+                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
+                        value="" aria-label="..." checked />
+                    </div>
+                    <div class="rounded border w-100 p-3">
+                      <p class="d-flex align-items-center mb-0">
+                        <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit Card
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row pb-3">
+                    <div class="d-flex align-items-center pe-2">
+                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
+                        value="" aria-label="..." />
+                    </div>
+                    <div class="rounded border w-100 p-3">
+                      <p class="d-flex align-items-center mb-0">
+                        <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row">
+                    <div class="d-flex align-items-center pe-2">
+                      <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
+                        value="" aria-label="..." />
+                    </div>
+                    <div class="rounded border w-100 p-3">
+                      <p class="d-flex align-items-center mb-0">
+                        <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row col-6 text-center">
+              <div class="col-lg-4 col-xl-3">
+                <div class="d-flex justify-content-between" style="font-weight: 500;">
+                  <p class="mb-2">Subtotal sin descuentos</p>
+                  <p class="mb-2">{{carrito.precioSinDescuento}}</p>
+                </div>
+
+
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                  <p class="mb-2">Total con descuentos </p>
+
+                </div>
+                <p class="mb-2">{{precioConDescuento}}</p>
+                <button type="button" class="btn btn-primary btn-block btn-lg">
+                  <div class="d-flex justify-content-between">
+                    <span>Confirmar</span>
+
+                  </div>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!--
 <div id="hola">
   <div class="content-body">
       <h4 class="card-title mb-4 text-center ">Tu carrito de compra</h4>
@@ -28,14 +149,14 @@
                   <a href="#" class="btn bg-color1 "> Remove</a>
               </div>
           </div>
-      </article> <!-- row.// -->
+      </article>
 
-  </div> <!-- card-body .// -->
+  </div>
 
 
 
 </div>
-  <!-- Section-->
+
 
   <form class="row g-5 aling-items-center">
     <div class="col text-center " >
@@ -46,7 +167,9 @@
       <label for="inputPassword2" class="visually-hidden">Codigo de descuento</label>
       <input type="codigo" class="form-control"  placeholder="">
     </div>
-     <div class="col">
+  </form>
+  <form>
+    <div class="col">
        <button type="submit" class="btn btn-white  bg-color1">Aplicar al carrito!</button>
     </div>
 
@@ -69,11 +192,11 @@
     </div>
 
   </form>
-<!-- EL TOTAL -->
+
 <section class="pepe text-center">
 <div class="text-center  ">
 
-  <
+
   <span class=" me-2 " id="AA">Costo total sin descuento:${{precioSinDescuento}}</span>
 
 
@@ -99,3 +222,4 @@
   </div>
 
 </div>
+-->

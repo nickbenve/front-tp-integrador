@@ -8,7 +8,15 @@ body {
   margin: 2px 5px;
 
    }
-
+.row{
+  display: flex;
+}
+.fab{
+  width: 130px;
+}
+.card-body{
+  display: flex;
+}
 head {
   padding-bottom: 1rem;
   vertical-align: middle;
@@ -62,8 +70,8 @@ h2 {
 
 }
 img{
-  width: 200px;
-  height: 230px;
+  width: 500x;
+  height: 500x;
   padding: 10px;
 }
 article{
