@@ -12,6 +12,7 @@ import {CargarItemService} from './cargar-item/cargar-item.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  paginaActual:number;
 
   esVendedor: string="";
   formulario: FormGroup|null;
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
 
     this.esVendedor="";
     this.formulario=null;
+    this.paginaActual=0;
 
    }
 
@@ -58,12 +60,12 @@ export class HomeComponent implements OnInit {
 
     this.visibilidadRolService.rolVisibilidad();
     if(localStorage.getItem('rol')==='vendedor'){
-          this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
+          this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id'),this.paginaActual).subscribe((productos:any)=>{
             this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
           })
     }else{
 
-        this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+        this.buscarProductosService.consultarProductosCliente(this.paginaActual).subscribe((productos:any)=>{
           this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
         })
     }
@@ -90,4 +92,44 @@ export class HomeComponent implements OnInit {
 
  }
 
+ public paginaSig(){
+  console.log(this.paginaActual);
+  this.paginaActual=this.paginaActual+1;
+  if(localStorage.getItem('rol')==='vendedor'){
+    this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id'),this.paginaActual).subscribe((resultado:any)=>{
+      this.buscarProductosService.actualizarProductos(resultado._embedded.productoes);
+
+    })
+
+    ;
+  }else{
+     this.buscarProductosService.consultarProductosCliente(this.paginaActual).subscribe((resultado:any)=>{
+      this.buscarProductosService.actualizarProductos(resultado._embedded.productoes);
+     }
+
+     )
+
+  }
+ }
+
+ public paginaAnt(){
+    if(this.paginaActual==0){
+
+    }else{
+      this.paginaActual=this.paginaActual-1;
+    if(localStorage.getItem('rol')==='vendedor'){
+      this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id'),this.paginaActual).subscribe((resultado:any)=>{
+        this.buscarProductosService.actualizarProductos(resultado._embedded.productoes);
+      });
+    }else{
+       this.buscarProductosService.consultarProductosCliente(this.paginaActual).subscribe((resultado:any)=>{
+        this.buscarProductosService.actualizarProductos(resultado._embedded.productoes);
+
+       }
+       );
+    }
+
+
+    }
+ }
 }

@@ -19,13 +19,13 @@ export class BuscarProductosService {
   ) {
     this.cambioResultados= new EventEmitter();
   }
-
-  public consultarProductosCliente(){
-    return this.http.get(this.url+'/productos');
+  //http://localhost:8080/productos?page=0&size=2
+  public consultarProductosCliente(nro:any){
+    return this.http.get(this.url+'/productos'+'?page='+nro+'&size=8');
   }
 
-  public consultarProductosVendedor(id:string|null){
-    return this.http.get(this.url+'/vendedores/'+id+'/productos');
+  public consultarProductosVendedor(id:string|null,nroPag:any){
+    return this.http.get(this.url+'/vendedores/'+id+'/productos'+'?page='+nroPag+'&size=8');
   }
 
   public notificarCambio(){

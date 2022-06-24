@@ -67,12 +67,12 @@ export class CargaProductosComponent implements OnInit {
     console.log(nombre+' '+descripcion+' '+precio+' '+moneda+' '+stock+' '+imagenURL)
     this.cargaProductoService.cargaProducto(nombre,descripcion,precio,moneda,prov,stock,imagenURL).subscribe(()=>{
       if(localStorage.getItem('rol')==='vendedor'){
-        this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id')).subscribe((productos:any)=>{
+        this.buscarProductosService.consultarProductosVendedor(localStorage.getItem('id'),0).subscribe((productos:any)=>{
           this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
         })
        }else{
 
-      this.buscarProductosService.consultarProductosCliente().subscribe((productos:any)=>{
+      this.buscarProductosService.consultarProductosCliente(0).subscribe((productos:any)=>{
         this.buscarProductosService.actualizarProductos(productos._embedded.productoes);
       })
   }

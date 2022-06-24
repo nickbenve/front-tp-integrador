@@ -3,3 +3,13 @@ img{
   height: 250px;
   padding: 10px;
 }
+
+
+.navigation{
+  align-items: center !important;
+}
+
+#navi{
+  align-items: center !important;
+  text-align: center  !important;
+}

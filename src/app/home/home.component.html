@@ -1,5 +1,4 @@
 
-
 <section *ngIf="esVendedor==='vendedor'">
 
   <section class="py-5">
@@ -36,13 +35,32 @@
                       <!-- Product actions-->
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="home">Modificar</a></div>
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" [routerLink]="['/carrito']">Modificar</a></div>
                       </div>
                   </div>
               </div>
             </div>
     </div>
   </section>
+  <div class="navigation " id="navi">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/home']" aria-label="Previous" (click)="paginaAnt()">
+          <span aria-hidden="true">&laquo;</span>
+
+        </a>
+      </li>
+
+      <li class="page-item"><a class="page-link" >{{paginaActual}}</a></li>
+
+      <li class="page-item">
+        <a class="page-link"  aria-label="Next" (click)="paginaSig()">
+          <span aria-hidden="true">&raquo;</span>
+
+        </a>
+      </li>
+    </ul>
+  </div>
 
 </section>
 
@@ -109,3 +127,25 @@
 
       </div>
   </div>
+  <div class="navigation " id="navi">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/home']" aria-label="Previous" (click)="paginaAnt()">
+          <span aria-hidden="true">&laquo;</span>
+
+        </a>
+      </li>
+
+      <li class="page-item"><a class="page-link" [routerLink]="['/home']">{{paginaActual}}</a></li>
+
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/home']" aria-label="Next" (click)="paginaSig()">
+          <span aria-hidden="true">&raquo;</span>
+
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</section>
+
