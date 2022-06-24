@@ -5,6 +5,8 @@ import { BuscarItemsService } from './../generales/header/buscar-items.service';
 import { AgregarDescService } from './agregarDesc/agregar-desc.service';
 import { AgregarMetService } from './agregarMet/agregar-met.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EnviarConfirService } from './enviar-confir/enviar-confir.service';
+
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
@@ -26,11 +28,12 @@ export class CarritoComponent implements OnInit {
     private buscarItemsService:BuscarItemsService,
     private formBuilder: FormBuilder,
     private agregarDescService:AgregarDescService,
-    private agregarMetService:AgregarMetService
+    private agregarMetService:AgregarMetService,
+    private enviarConfirService:EnviarConfirService
      ) {
-this.formularioMeto=null;
-this.formularioDesc=null;
-  this.codigoDescuento="";
+    this.formularioMeto=null;
+    this.formularioDesc=null;
+      this.codigoDescuento="";
   }
 
   ngOnInit() {
@@ -87,5 +90,11 @@ this.formularioDesc=null;
     {
       this.buscarItemsService.consultarItemsCliente(localStorage.getItem('id')).subscribe((resultado:any)=>{this.buscarItemsService.cambiarResultados(resultado)});
     });
+
+
 }
+
+  public confirmar(){
+    this.enviarConfirService.enviarConfir().subscribe();
+  }
 }

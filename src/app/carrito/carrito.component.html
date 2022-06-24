@@ -96,11 +96,10 @@
                   <p class="mb-2">{{precioConDescuento}}</p>
                 </div>
 
-                <button type="button" class="btn btn-primary btn-block  btn-lg">
-                  <div class="d-flex justify-content-between">
-                    <span>Confirmar</span>
+                <button [routerLink]="['/home']" type="button" class="btn btn-primary btn-block  btn-lg" (click)="confirmar()">
 
-                  </div>
+                    Confirmar
+
                 </button>
 
               </div>
