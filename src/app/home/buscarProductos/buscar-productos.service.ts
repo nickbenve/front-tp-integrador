@@ -25,7 +25,7 @@ export class BuscarProductosService {
   }
 
   public consultarProductosVendedor(id:string|null,nroPag:any){
-    return this.http.get(this.url+'/vendedores/'+id+'/productos'+'?page='+nroPag+'&size=8');
+    return this.http.get(this.url+'/vendedores/'+id+'/productos');
   }
 
   public notificarCambio(){
