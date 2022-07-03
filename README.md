@@ -1,8 +1,9 @@
 # front-tp-integrador
 
 Indicaciones generales:
--Se utilizan tanto componentes(ruteables o de visualizacion) como servicios.
 
+-Se utilizan tanto componentes(ruteables o de visualizacion) como servicios.
+-Las consultas api se especifican en readme.
 
 
 Ejecucion:
